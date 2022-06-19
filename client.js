@@ -14,7 +14,17 @@ const connect = function () {
   });
   conn.on("connect", () => {
     conn.write("Name: BNG");
+    // conn.write("Move: up");
+    // conn.write("Move: up");
+    // conn.write("Move: up");
+    // const move = setInterval(() => {
+    //   conn.write("Move: up");
+    // }, 500);
+    // setTimeout(() => {
+    //   clearInterval(move);
+    // }, 5000);
   });
+
   //interpret incoming data as text
   conn.setEncoding("utf-8");
   return conn;
