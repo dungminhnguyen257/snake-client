@@ -1,5 +1,6 @@
 const net = require("net");
-const { IP, PORT } = require("./constants");
+const { IP, PORT, USER } = require("./constants");
+
 const connect = function () {
   const conn = net.createConnection({
     host: IP,
@@ -9,20 +10,13 @@ const connect = function () {
   conn.on("connect", () => {
     console.log("you ded cuz you idled");
   });
+
   conn.on("connect", () => {
     console.log("Successfully connected to game server");
   });
+
   conn.on("connect", () => {
-    conn.write("Name: BNG");
-    // conn.write("Move: up");
-    // conn.write("Move: up");
-    // conn.write("Move: up");
-    // const move = setInterval(() => {
-    //   conn.write("Move: up");
-    // }, 500);
-    // setTimeout(() => {
-    //   clearInterval(move);
-    // }, 5000);
+    conn.write(`Name: ${USER}`);
   });
 
   //interpret incoming data as text
